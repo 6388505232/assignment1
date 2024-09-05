@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipak Dubey Assignment</title>
+    <style>
+        /* Basic reset */
+        
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Container for the whole page */
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 30px;
+            width: 96%;
+            height: 90vh;
+            gap: 30px;
+        }
+        
+        .widget {
+            padding: 10px;
+            margin: 5px;
+        }
+        
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        /* Left side (kept empty) */
+        
+        .left-half {
+            flex: 1;
+            background-color: #35333377;
+            border: 2px solid #000000;
+            /* If you have added a border as suggested before */
+            border-radius: 30px;
+        }
+        /* Right side content */
+        
+        .right-half {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #282f35a9;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid #000000;
+            /* If you have added a border as suggested before */
+            border-radius: 30px;
+        }
+        
+        .upper-rectangle,
+        .lower-rectangle {
+            flex: 1;
+            /* Each will take up half the space of the right-half */
+            background-color: #2b2b2b;
+            /* Different background for rectangles */
+            border-radius: 10px;
+            /* Optional: Adds rounded corners */
+            padding: 10px;
+            /* Padding inside each rectangle */
+            display: flex;
+            align-items: center;
+            /* Center content vertically */
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            /* Center content horizontally */
+        }
+        /* Tabs for different sections */
+        
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .tab.active {
+            background-color: #ff007f;
+        }
+        /* Content area */
+        
+        .content {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        #image-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        #image-container img {
+            margin: 0.5rem;
+            max-width: 100px;
+            max-height: 100px;
+        }
+        /* Gallery section */
+        
+        .gallery {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .images {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .images img {
+            width: 120px;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        #add-image {
+            background-color: #ff007f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-right: 20px;
+            position: absolute;
+            top: -20px;
+            /* Adjust this value to position it as needed */
+            left: 290px;
+        }
+        
+        #prev {
+            background-color: #ff007f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: -20px;
+            left: 360px;
+        }
+        
+        #next {
+            background-color: #ff007f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: -20px;
+            /* Adjust this value to position it as needed */
+            left: 390px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left half (empty) -->
+        <div class="left-half"></div>
+
+        <!-- Right half (content) -->
+        <div class="right-half">
+            <div class="tabs">
+                <button id="about" class="tab active">About Me</button>
+                <button id="experiences" class="tab">Experiences</button>
+                <button id="recommended" class="tab">Recommended</button>
+            </div>
+            <div class="upper-rectangle">
+                <div class="content" id="content">
+                    <p>Hello! I'm Dipak Kumar Dubey, a passionate Full Stack Developer with a flair for creating seamless and dynamic web experiences. With a solid foundation in both front-end and back-end technologies, I take pride in crafting solutions
+                        that are not only functional but also visually captivating.</p>
+                </div>
+            </div>
+            <div class="lower-rectangle">
+                <div class="gallery">
+                    <button id="add-image">+ ADD IMAGE</button>
+                    <div class="images">
+                        <!-- Placeholders for images -->
+                        <img src="image1.jpg.jpg" alt="Image 1">
+                        <img src="image2.jpg.jpg" alt="Image 2">
+                    </div>
+                    <button id="prev">&#10094;</button>
+                    <button id="next">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript to handle tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+                // Add active class to the clicked tab
+                this.classList.add('active');
+
+                // Change content based on clicked tab
+                const content = document.getElementById('content');
+
+                if (this.id === 'about') {
+                    content.innerHTML = `
+                        <p>Hello! I'm Dipak Kumar Dubey, a passionate Full Stack Developer with a flair for creating seamless and dynamic web experiences. With a solid foundation in both front-end and back-end technologies, I take pride in crafting solutions that are not only functional but also visually captivating.</p>
+                    `;
+                } else if (this.id === 'experiences') {
+                    content.innerHTML = `
+                        <p>With 2 years of experience as a full-stack developer, I have successfully crafted a variety of web applications, including a dynamic university website, an engaging comedy show generator, and a robust e-commerce platform. My work spans both front-end and back-end development, showcasing my ability to build intuitive user interfaces and develop reliable server-side logic. Each project has honed my skills and fueled my passion for delivering impactful and user-centric web solutions.</p>
+                    `;
+                } else if (this.id === 'recommended') {
+                    content.innerHTML = `
+                        <p>I have received positive feedback from colleagues and clients alike, highlighting my expertise as a full-stack developer. My work on projects like the university website, comedy show generator, and e-commerce platform has been praised for its innovation, technical proficiency, and attention to detail. My collaborators have commended my ability to deliver high-quality solutions and tackle complex challenges with enthusiasm and professionalism.</p>
+                    `;
+                }
+            });
+        });
+
+        // JavaScript to handle gallery navigation (prev/next)
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.images img');
+
+        document.getElementById('prev').addEventListener('click', function() {
+            images[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            images[currentImageIndex].style.display = 'block';
+        });
+
+        document.getElementById('next').addEventListener('click', function() {
+            images[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            images[currentImageIndex].style.display = 'block';
+        });
+
+        // Add image button functionality (for demonstration purposes)
+        document.getElementById('add-image').addEventListener('click', function() {
+            const newImage = document.createElement('img');
+            newImage.src = 'image3.jpg'; // Placeholder image source
+            newImage.alt = 'New Image';
+            newImage.style.width = '100px';
+            newImage.style.height = '100px';
+            newImage.style.objectFit = 'cover';
+            document.querySelector('.images').appendChild(newImage);
+        });
+    </script>
+
+</body>
+
+</html>
